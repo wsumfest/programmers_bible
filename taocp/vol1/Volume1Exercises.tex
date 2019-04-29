@@ -1,0 +1,56 @@
+\documentclass{article}
+
+\title{Volume 1 Exercises}
+\date{2019-04-13}
+\author{William Sumfest}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\maketitle
+	\newpage
+	\pagenumbering{arabic}
+
+	\section{Basic Concepts}
+	\subsection{Basics}
+	\begin{enumerate}
+		\item Show how the tuple (a, b, c, d) can be rearranged to (b, c, d, a) by a sequence of replacements.
+		\begin{itemize}
+			\item Set $x \leftarrow a$.
+			\item Set $a \leftarrow b$.
+			\item Set $b \leftarrow c$.
+			\item Set $c \leftarrow d$.
+			\item Set $d \leftarrow x$.
+		\end{itemize}
+		\item Prove that \textit{m} is always greater than \textit{n} at the beginning of \textbf{Step 2} in \textit{Euclid's Algorithm}.
+		\paragraph{Answer:}
+		We know that when the algorithm exits \textbf{Step 1}, $\textit{m} \geq \textit{n}$. Then, after every iteration of \textbf{Step 2}, we get $0 \leq r \leq n \leq m$. 
+		\item Change \textbf{Algorithm E} so that all trivial replacements such as $m \leftarrow n$ are avoided.
+		\paragraph{Answer:}
+		Let's consider the operations in \textit{Euclid's Algorithm}. We have our compute and terminate conditions. These can not be simplified for effeciency. We then have our reductions, Set $m \leftarrow n$ and Set $ n \leftarrow r$. \textbf{Here I am having trouble conceptualizing an answer. Please help.}
+		\item What is the greatest common denominator of 2166 and 6099?
+		\paragraph{Answer:}
+		Using our algorithm defined in our algo project we get 57.
+		\item Show that the "Procedure for Reading This Set of Books" that appears after the Preface actually fails to be a genuine algorithm on at least three of our five counts! Also mention some differences in format bewteen it and \textbf{Algorithm E}. 
+		\paragraph{Answer:}
+		Let us consider the \textbf{Definiteness} of step 5 of the Procedure. "Is the subject of this chapter of interest to you?". This step is entirely ambiguous. Violating a key property of an algorithm. Let us then consider the \textbf{Finiteness} of our algorithm. It is clear that this procedure does not satisfy this property. In the loop between steps 14, 15, and 7 a simple change in the mindset of the reader will dramitacally change the number of steps in our execution. This violates the property, since an algorithm should execute in the same number of steps. Finally, let us consider the \textbf{Effectiveness} of our procedure. This property postulates that every operation must be simple and "sufficiently basic". Let us consider an edge case of an insomniac. For this reader, sleep is not a simple or basic task. This violates our principal.
+		\item What is $T_5$ the average number of times step E1 is performed when $n = 5$?
+		\paragraph{Answer:}
+		There are five cases to consider. Given $n = 5$, there is a range of values that \textit{r} can map onto, each with $1/5$ probability. 
+		\begin{itemize}
+			\item Let $r = 0$. E1 is called once in this case.
+			\item Let $r = 1$. E1 is called twice in this case.
+			\item Let $r = 2$. E1 is called four times in this case.
+			\item Let $r = 3$. E1 is called three times in this case.
+			\item Let $r = 4$. E1 is called three times in this case.
+		\end{itemize}
+		Given an equals distribution, we have $T_5 = 2.6$.
+		\item Suppose that \textit{m} is known and \textit{n} is allowed to range over all positive integers. Let $U_m$ be the average number of times that step E1 is executed in Algorithm E. Show that $U_m$ is well defined. Is $U_m$ in any way related to $T_m$?
+		\paragraph{Answer:}
+		Given \textit{m}, we have a range of values that \textit{r} can take on. These values include $\{0, 1\dots\, n-1\}$, depending on the value \textit{n}; let us denote this as set $R_n$. We then know that, unless $r = 0$, we have $m = n$ and $n \in R_n$. We also know that, given \textit{m}, for any given \textit{n} this pair (m,n) maps to one single remainder in $R_n$. \textbf{?????}
+		\item Saved as an exercise for later.
+		\item Saved as an exercise for later.
+	\end{enumerate}
+	\subsection{Mathematical Induction}
+
+
+\end{document}

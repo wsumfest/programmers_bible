@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{flexisym}
+
+\title{Volume 1 Notes}
+\date{2019-04-13}
+\author{William Sumfest}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\maketitle
+	\newpage
+	\pagenumbering{arabic}
+
+	\section{Basic Concepts}
+	\subsection{Algorithms}
+	This section walks us through Knuth's definition of algorithms paired with examples.
+
+	\subsubsection{Euclid's Algorithm}
+	Given two positive integers \textit{m} and \textit{n}, find their \textbf{greatest common divisor}. That is, the largest positive integer that evenly divides both \textit{m} and \textit{n}.
+	\begin{enumerate}
+		\item If \textit{m} \textless \textit{n}, exchange $\textit{m} \Leftrightarrow \textit{n}$.
+		\item Divide \textit{m} by \textit{n} and let \textit{r} be the remainder.
+		\item If $r = 0$, the algorithm terminates; \textit{n} is returned.
+		\item Set $\textit{n} \rightarrow \textit{m}$.
+		\item Set $\textit{r} \rightarrow \textit{n}$.
+		\item Recurse back to Step 2.
+	\end{enumerate}
+
+	\subsubsection{Algorithm Features}
+	\begin{description}
+		\item[Finiteness] An algorithm must \textbf{always} terminate after a finite number of steps.
+		\item[Defiteness] Every action/step in the algorithm must be precisely defined. At any moment, the actions to be carried out must be rigorously and unambiguously defined. 
+		\item[Input] An algorithm must have \textit{zero or more} inputs. These inputs can be given before the algorithm begins, or dynamically as the algorithm is running. Each input is taken from a specified set of objects. For example, in Euclid's Algorithm, \textit{m} and \textit{n} are taken from the set of \textbf{Positive Integers}.
+		\item[Output] An algorithm must have \textit{zero or more} outputs. These quantities have a relationship to the inputs that are given. As with the \textit{inputs} the outputs are mapped to a specified set.
+		\item[Effectiveness] An algorithm is expected to be \textit{effective}. That is, can be performed in a reasonable amont of time.
+	\end{description}
+
+	\subsubsection{Analysis of Algorithms}
+	Given an algorithm, it is important to be able to determine its performance characteristics. Occasionally, we try to determine if the algorithm is optimal for its problem statement. The \textit{Theory of Algorithms} is the study of determining if an effective algorithm exists for a given problem statement. 
+	\paragraph{Computational Method} Formally defined $(\textit{Q}, \textit{I}, \Omega, \textit{f})$ is a tuple in which \textit{Q} is a set containing subsets \textit{I} and $\Omega$ and \textit{f} is a function from \textit{Q} to itself. The tuple is intended to represent the computation, input, output, and the computational rule. 
+	\begin{itemize}
+		\item $\forall \textit{x} \in \textit{I}$, $x_0 = x$ and $x_k+1 = f(x_k)$ for $k \geq 0$.
+		\item The computational sequence is said to \textit{terminate in k steps} if \textit{k} is the smallest integer in which $\textit{k} \in \Omega$. Not that since $x_k+1 = x_k$, then $x_k+1$ is also in $\Omega$.
+
+	\end{itemize}
+	\subsection{Mathematical Preliminaries}
+	\subsubsection{Mathematical Induction}
+	Let $P(n)$ be some statement about the integer \textit{n}. This could be "n times $n+3$ is an even number". Suppose we want to prove that this is true for all positiive integers \textit{n}. An important way to do this is:
+	\begin{enumerate}
+		\item Give a proof that $P(1)$ is true.
+		\item Give a proof that if all of $P(1), P(2), ... , P(n)$ are true, then $P(n+1)$ is also true.
+	\end{enumerate}
+	This process is called \textit{proof by mathematical induction}. This process is conclusive and definite. It defers from \textit{scientific induction} as the latter draws conclusions based off of scientific reasoning, while \textit{mathematical induction} takes a definitive statement and conclusively proves it.
+	\subsubsection{Extended Euclids Algorithm}
+	Given two positive integers \textit{m} and \textit{n}, we can compute their greatest common divisor \textit{d}, and we can also compute two not necessarly positive integers \textit{a} and \textit{b} such that $am + bn = d$.
+	\begin{itemize}
+		\item Set $a\textprime \leftarrow b \leftarrow 1$, $b\textprime \leftarrow a \leftarrow 0$, $c \leftarrow m$, $d \leftarrow n$.
+		\item Let \textit{q} and \textit{r} be the quotient and remainder, respectively, of c divided by d.
+		\item If $r = 0$, the algorithm terminates; we have in this case $am + bn = d$ as desired.
+		\item Set $c \leftarrow d$, $d \leftarrow r$, $t \leftarrow a\textprime$, $a\textprime \leftarrow a$, $a \leftarrow t - qa$, $t \leftarrow b\textprime$, $b\textprime \leftarrow b$, $b \leftarrow t - qb$ and go back to the second step.
+	\end{itemize}
+	
+
+
+
+
+\end{document}
